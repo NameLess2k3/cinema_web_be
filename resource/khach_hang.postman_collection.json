@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "2a865964-0e6a-46dd-af43-969a72fcabad",
+		"name": "khach_hang",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28906175"
+	},
+	"item": [
+		{
+			"name": "tai_khoan_khach_hang",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ho_ten\":\"dick grayson\",\r\n    \"email\":\"batman@gmail.com\",\r\n    \"so_dien_thoai\": \"0965730515\",\r\n    \"mat_khau\": \"25102003\",\r\n    \"vai_tro\": \"quan tri\",\r\n    \"luong\": 2000000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/tai_khoan_khach_hang/signup",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"tai_khoan_khach_hang",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"batman@gmail.com\",\r\n    \"mat_khau\": \"25102003\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/tai_khoan_khach_hang/login",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"tai_khoan_khach_hang",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\": 1,\r\n    \"ho_ten\":\"thai chi bach\",\r\n    \"email\":\"batman@gmail.com\",\r\n    \"so_dien_thoai\": \"0965730515\",\r\n    \"mat_khau\": \"25102003\",\r\n    \"vai_tro\": \"quan tri\",\r\n    \"luong\": 2000000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/tai_khoan_khach_hang/update",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"tai_khoan_khach_hang",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tim_kiem_phim",
+			"item": [
+				{
+					"name": "find_movie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/tim_kiem_phim/movies?search=",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"tim_kiem_phim",
+								"movies"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "thong_tin_ve_xem_phim",
+			"item": [
+				{
+					"name": "ticket_info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/thong_tin_ve_xem_phim/thongtinve/1",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"thong_tin_ve_xem_phim",
+								"thongtinve",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dat_ve",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ngay_dat\": \"2024-10-21\",\r\n    \"tong_tien\": \"150000.000\",\r\n    \"phuong_thuc\": \"Credit Card\",\r\n    \"user_id\": 2,\r\n    \"so_ghe\": \"A10\",\r\n    \"lich_chieu_id\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/thong_tin_ve_xem_phim/datve",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"thong_tin_ve_xem_phim",
+								"datve"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
