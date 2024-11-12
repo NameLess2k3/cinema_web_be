@@ -19,6 +19,9 @@ CREATE TABLE api_phim (
     Ngay_Phat_Hanh DATE
 );
 
+ALTER TABLE api_phim
+ADD COLUMN Image VARCHAR(255);
+
 CREATE TABLE api_user (
     id INT AUTO_INCREMENT PRIMARY KEY,
     Ho_Ten NVARCHAR(100),

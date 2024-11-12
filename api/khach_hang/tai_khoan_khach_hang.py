@@ -4,6 +4,30 @@ from rest_framework.response import Response
 from rest_framework import status
 from ..models import User
 
+
+@api_view(['GET'])
+def getUser(request):
+    try:
+        # Assuming you want to get a user by their email, for example
+        email = request.query_params.get('email')
+        if not email:
+            return Response({"error": "Email parameter is required"}, status=status.HTTP_400_BAD_REQUEST)
+
+        user = User.objects.get(email=email)
+        user_data = {
+            "ho_ten": user.ho_ten,
+            "email": user.email,
+            "so_dien_thoai": user.so_dien_thoai,
+            "vai_tro": user.vai_tro,
+            "luong": str(user.luong)  # Convert Decimal to string for JSON serialization
+        }
+        return Response(user_data, status=status.HTTP_200_OK)
+    except User.DoesNotExist:
+        return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
+    except Exception as e:
+        return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
 @api_view(['POST'])
 def login(request):
     email = request.data.get('email')
@@ -15,7 +39,7 @@ def login(request):
     try:
         user = User.objects.get(email=email)
         if user.mat_khau == password:
-            return Response({"message": "login successful","user_id": user.id}, status=status.HTTP_200_OK)
+            return Response({"message": "login successful","user_id": user.id, "user_name": user.ho_ten}, status=status.HTTP_200_OK)
         else:
             return Response({"error": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
     except User.DoesNotExist:

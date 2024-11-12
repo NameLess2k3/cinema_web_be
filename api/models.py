@@ -8,6 +8,7 @@ class Phim(models.Model):
     thoi_luong = models.IntegerField()
     mo_ta = models.TextField()
     ngay_phat_hanh = models.DateField()
+    image = models.CharField(max_length=255)
 
 class User(models.Model):
     ho_ten = models.CharField(max_length=100)

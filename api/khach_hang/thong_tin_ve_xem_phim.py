@@ -21,21 +21,8 @@ def datVe(request):
 
 
 @api_view(['GET'])
-def thongTinVe(request, user_id, dat_ve_id=None):
-    if dat_ve_id:
-        try:
-            ve = Ve.objects.get(id=dat_ve_id, user_id=user_id)
-            return Response({
-                'ngay_dat': ve.ngay_dat,
-                'tong_tien': ve.tong_tien,
-                'phuong_thuc': ve.phuong_thuc,
-                'so_ghe': ve.so_ghe,
-                'lich_chieu': ve.lich_chieu.id
-            }, status=status.HTTP_200_OK)
-        except Ve.DoesNotExist:
-            return Response({'error': 'Ve not found'}, status=status.HTTP_404_NOT_FOUND)
-    else:
-        ve_list = Ve.objects.filter(user_id=user_id)
+def thongTinVe(request, lich_chieu_id):
+        ve_list = Ve.objects.filter(lich_chieu=lich_chieu_id)
         ve_data = [{
             'id': ve.id,
             'ngay_dat': ve.ngay_dat,
