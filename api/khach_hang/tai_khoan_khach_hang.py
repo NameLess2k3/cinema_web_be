@@ -55,10 +55,10 @@ def signUp(request):
     luong = request.data.get('luong')
 
     if not all([ho_ten, email, so_dien_thoai, mat_khau, vai_tro, luong]):
-        return Response({"error": "All fields are required"}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"message": "All fields are required"}, status=status.HTTP_400_BAD_REQUEST)
 
     if User.objects.filter(email=email).exists():
-        return Response({"error": "Email already exists"}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"message": "Email này đã tồn tại"}, status=status.HTTP_400_BAD_REQUEST)
 
     user = User.objects.create(
         ho_ten=ho_ten,
@@ -69,7 +69,7 @@ def signUp(request):
         luong=luong
     )
 
-    return Response({"message": "signUp successful", "user_id": user.id}, status=status.HTTP_201_CREATED)
+    return Response({"message": "đăng ký thành công", "user_id": user.id}, status=status.HTTP_201_CREATED)
 
 @api_view(['PUT'])
 def update(request):
