@@ -91,7 +91,7 @@ DATABASES = {
         'PORT': '21203',      # or the port on which your MySQL server is listening
         'OPTIONS': {
             'ssl': {
-                'ca': os.path.join(BASE_DIR, 'certs', 'ca.pem'),  # Path to the CA certificate
+                'ca': os.path.join(BASE_DIR, 'resource', 'ca.pem'),  # Path to the CA certificate
             },
         },
     }
