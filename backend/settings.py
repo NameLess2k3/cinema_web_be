@@ -77,14 +77,23 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'if0_37747090_cinema',
-        'USER': 'if0_37747090',
-        'PASSWORD': 'VW7BIoDTX2M4',
-        'HOST': 'sql112.infinityfree.com',  # or the hostname where your MySQL server is running
-        'PORT': '3306',      # or the port on which your MySQL server is listening
+        'NAME': 'cinema',
+        'USER': 'avnadmin',
+        'PASSWORD': 'AVNS_tBTG9OtWmbPCyB_Vu69',
+        'HOST': 'mysql-3042f0b5-bachtheman25-9910.e.aivencloud.com',  # or the hostname where your MySQL server is running
+        'PORT': '21203',      # or the port on which your MySQL server is listening
+        'OPTIONS': {
+            'ssl': {
+                'ca': os.path.join(BASE_DIR, 'certs', 'ca.pem'),  # Path to the CA certificate
+            },
+        },
     }
 }
 
