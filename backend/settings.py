@@ -80,10 +80,10 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cinema',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',  # or the hostname where your MySQL server is running
+        'NAME': 'if0_37747090_cinema',
+        'USER': 'if0_37747090',
+        'PASSWORD': 'VW7BIoDTX2M4',
+        'HOST': 'sql112.infinityfree.com',  # or the hostname where your MySQL server is running
         'PORT': '3306',      # or the port on which your MySQL server is listening
     }
 }
